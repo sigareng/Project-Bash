@@ -1,0 +1,8 @@
+read -p $"Enter a vaild Domain ex:google.com"\  domain
+if grep -qE '^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$' <<< "$do$
+ then
+  dns=$(host -t ns "$domain" |cut -d " " -f 4); 
+ else 
+        echo 'Please enter a vaild domain';exit 
+
+fi
